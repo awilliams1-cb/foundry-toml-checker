@@ -1,0 +1,19 @@
+name: 'Foundry TOML Checker'
+description: 'Validates foundry.toml against project compiler requirements (via_ir, solc version, evm_version)'
+author: 'awilliams1-cb'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      shell: bash
+      run: pip install tomli --quiet
+
+    - name: Check foundry.toml
+      shell: bash
+      run: python "${{ github.action_path }}/check_config.py"
