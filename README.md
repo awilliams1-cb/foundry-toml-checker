@@ -42,3 +42,11 @@ python check_config.py
 ```
 
 Exit code `0` = passed, `1` = failed or error.
+
+## Development
+
+### Running tests
+
+```bash
+uv run --with pytest --with tomli pytest test_check_config.py -v
+```
